@@ -1,1 +1,82 @@
 /* You can add global styles to this file, and also import other style files */
+*
+{
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+
+.text-center {
+  text-align: center;
+}
+
+.pb-20 {
+  padding-bottom: 20px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+.mt-30 {
+  margin-top: 30px;
+}
+
+.w-6 {
+  font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+
+/* authentication  */
+.gs-auth {
+  background: #EDF0FA;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gs-auth-form {
+  max-width: 400px;
+  width: 70%;
+  background: white;
+  margin: auto;
+  box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.233);
+  padding: 60px 30px;
+}
+
+.gs-auth-form
+.form-field label {
+  width: 100%;
+  font-weight: 600;
+  font-size: 18px;
+}
+.gs-auth-form
+.form-field input {
+  margin: 10px auto 20px auto;
+  width: 100%;
+  padding: 10px 0px;
+  font-size: 16px;
+}
+.form-field input[type="submit"]
+{
+  background: black;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+.gs-auth .frgt-ps
+{
+  text-align: right;
+  margin-top: -10px;
+  cursor: pointer;
+}
+
