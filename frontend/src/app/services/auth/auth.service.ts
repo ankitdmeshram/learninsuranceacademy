@@ -41,7 +41,11 @@ export class AuthService {
 
     resetPass = (val: any) => {
       const { email } = val;
-      return this.auth.sendPasswordResetEmail(email);
+      return this.auth.sendPasswordResetEmail(email)
+      .then((res) => {
+        this.toastr.success("Password Link Shared Succesffully On Mail")
+        this.router.navigate(['./signin']);
+      })
     }
 
     getUser = () => {
