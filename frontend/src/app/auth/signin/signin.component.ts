@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class SigninComponent {
 
   constructor(
-    private auth: AuthService
+    private auth: AuthService,
+    private spinner: NgxSpinnerService
   ) {
 
   }
@@ -21,6 +23,7 @@ export class SigninComponent {
   })
 
   signIn() {
+    this.spinner.show();
     this.auth.signIn(this.signInForm.value);
   }
 
