@@ -6,6 +6,9 @@
   font-family: sans-serif;
 }
 
+@import 'ngx-toastr/toastr';
+
+
 
 .text-center {
   text-align: center;

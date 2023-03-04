@@ -1,26 +1,26 @@
 <div class="gs-auth">
   <div class="gs-auth-form">
       <h1 class="text-center pb-20">Sign Up</h1>
-      <form action="">
+      <form [formGroup]="signUpForm">
         <div class="form-field">
           <label for="name">Name</label>
-          <input type="text" id="name">
+          <input type="text" id="name" formControlName="name">
         </div>
         <div class="form-field">
           <label for="email">Email</label>
-          <input type="text" id="email">
+          <input type="text" id="email" formControlName="email">
         </div>
         <div class="form-field">
           <label for="phone">Phone No.</label>
-          <input type="text" id="phone">
+          <input type="text" id="phone" formControlName="phone">
         </div>
         <div class="form-field">
           <label for="password">Password</label>
-          <input type="password" id="password">
+          <input type="password" id="password" formControlName="password">
         </div>
 
         <div class="form-field">
-          <input type="submit" id="submit" value="Submit">
+          <input type="submit" id="submit" value="Submit" (click)="signUp()">
         </div>
       </form>
 
