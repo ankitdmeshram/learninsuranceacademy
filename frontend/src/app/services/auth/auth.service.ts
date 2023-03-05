@@ -16,9 +16,11 @@ export class AuthService {
     private toastr: ToastrService,
     private router: Router,
     private spinner: NgxSpinnerService
-  ) { }
+  ) {
+    console.log(this.url)
+   }
 
-  url: string = "http://localhost:8000/api";
+  url: string = window.location.href.includes("localhost") ? "http://localhost:8000/api" : "https://lms-backend.ankitmeshram.in/api";
 
   signIn = (data: any) => {
     const { email, password } = data;
