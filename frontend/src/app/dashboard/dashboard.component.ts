@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
 
+  isOpenSidebar:boolean = true;
+
+  constructor() {
+    if(screen.width < 992)
+    {
+      this.isOpenSidebar = false;
+    }
+  }
+
 }
