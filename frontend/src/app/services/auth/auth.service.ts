@@ -18,6 +18,8 @@ export class AuthService {
     private spinner: NgxSpinnerService
   ) { }
 
+  url: string = "http://localhost:8000/api";
+
   signIn = (data: any) => {
     const { email, password } = data;
     return this.auth.signInWithEmailAndPassword(email, password)
@@ -34,9 +36,19 @@ export class AuthService {
   }
 
   signUp = (data: any) => {
-    const { email, password } = data;
+    const { email, password, phone, name } = data;
     return this.auth.createUserWithEmailAndPassword(email, password)
-      .then((res) => {
+      .then((res:any) => {
+        console.log(res)
+        // let id = /
+        let data = {
+          "name": name,
+          "email": email,
+          "phone": phone,
+          "guid": res.user.multiFactor.user.uid
+        }
+        this.http.post(`${this.url}/signup`, data).subscribe((res) => console.log(res))
+
         console.log(res);
         this.toastr.success("SignUp Successfully");
         this.router.navigate(['/dashboard'])
