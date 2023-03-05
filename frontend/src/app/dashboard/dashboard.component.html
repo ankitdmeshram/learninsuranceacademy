@@ -1,11 +1,17 @@
 <div class="gs-main">
   <div [ngClass]="isOpenSidebar ? 'gs-sidebar' : 'gs-sidebar-close'">
-   <app-sidebar></app-sidebar>
+    <app-sidebar></app-sidebar>
   </div>
-  <div  (click)="isOpenSidebar = !isOpenSidebar" [ngClass]="isOpenSidebar ? 'gs-sidebar-menu-btn' : 'gs-sidebar-menu-btn-close'">
-
-    <img src="https://firebasestorage.googleapis.com/v0/b/learn-insurance-academy.appspot.com/o/menu.png?alt=media&token=12e7686a-a887-49e7-9edc-b6b17b5aa27e" alt="#">
-
+  <div
+    (click)="isOpenSidebar = !isOpenSidebar"
+    [ngClass]="
+      isOpenSidebar ? 'gs-sidebar-menu-btn' : 'gs-sidebar-menu-btn-close'
+    "
+  >
+    <img
+      src="https://firebasestorage.googleapis.com/v0/b/learn-insurance-academy.appspot.com/o/menu.png?alt=media&token=12e7686a-a887-49e7-9edc-b6b17b5aa27e"
+      alt="#"
+    />
   </div>
   <div [ngClass]="isOpenSidebar ? 'gs-body' : 'gs-body-100'">
     <div class="gs-nav">
@@ -13,14 +19,7 @@
     </div>
 
     <div class="gs-content">
-      <div class="dash-flex">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-      </div>
-
-
+        <router-outlet></router-outlet>
     </div>
   </div>
 </div>

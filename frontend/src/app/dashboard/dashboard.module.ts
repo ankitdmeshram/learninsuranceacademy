@@ -5,13 +5,15 @@ import { AnalyticsComponent } from './analytics/analytics.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { SidebarComponent } from './layouts/sidebar/sidebar.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { CoursesComponent } from './courses/courses.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     AnalyticsComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    CoursesComponent
   ],
   imports: [
     CommonModule,

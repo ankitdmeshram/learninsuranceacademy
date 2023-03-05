@@ -65,6 +65,10 @@ p {
     padding: 20px;
     border-left: 1px solid rgba(211, 211, 211, 0.445);
 }
+.sign-out:hover {
+  background-color: #F1F1F1;
+
+}
 .logo {
     text-align: center;
 }
@@ -83,6 +87,43 @@ p {
     font-size: 30px;
     height: 150px;
 }
+
+.gs-side-links ul {
+  padding-top: 40px;
+}
+.gs-side-links ul li {
+  padding: 15px 30px;
+  font-size: 18px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.215);
+  cursor: pointer;
+}
+.gs-side-links ul li:hover {
+  background-color: #F1F1F1;
+}
+
+.gs-courses {
+  /* display: flex; */
+}
+.gs-courses .gs-ind-course {
+  float: left;
+  margin: 5px 10px;
+  padding: 5px;
+  box-shadow: 1px 1px 3px gray;
+  width: 90%;
+  max-width: 300px;
+}
+.gs-courses .gs-ind-course img {
+  width: 96%;
+  height: 210px;
+  padding: 5px;
+}
+
+.gs-courses .gs-ind-course h3,
+.gs-courses .gs-ind-course h4 {
+  padding: 4px 10px;
+
+}
+
 
 
 @media (max-width: 992px){
@@ -107,3 +148,5 @@ p {
     width: 40%;
   }
 }
+
+
