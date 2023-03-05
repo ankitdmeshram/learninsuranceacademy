@@ -16,9 +16,10 @@ const redirectLoggedInToHome = () => redirectLoggedInTo(['dashboard']);
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+    component: SigninComponent,
     canActivate: [AngularFireAuthGuard],
-    data: {authGuardPipe: redirectUnauthorizedLogin}
+    data: {authGuardPipe: redirectLoggedInToHome}
+    // loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
   },
   {
     path: 'dashboard',
