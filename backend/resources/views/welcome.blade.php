@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Learn Insurance Academy</title>
+    <title>Learning Management System</title>
 </head>
 <body>
 
-    <h1 style="text-align: center">Learn Insurance Academy</h1>
+    <h1 style="text-align: center">Learning Management System</h1>
 
 </body>
 </html>
