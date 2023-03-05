@@ -26,7 +26,7 @@ export class AuthService {
     const { email, password } = data;
     return this.auth.signInWithEmailAndPassword(email, password)
       .then((res) => {
-        this.toastr.success("Sign In Successfull");
+        this.toastr.success("Sign In Successfully");
         this.router.navigate(['/dashboard']);
         console.log(res)
         this.spinner.hide()
@@ -81,7 +81,13 @@ export class AuthService {
   }
 
   signOut = () => {
-    return this.auth.signOut();
+    return this.auth.signOut()
+    .then((res) => {
+      this.router.navigate(['../']);
+      this.toastr.success("Sign Out Successfully");
+    }).catch((err) => {
+      this.toastr.error("Something went wrong");
+    })
   }
 
 
