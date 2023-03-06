@@ -16,10 +16,10 @@ const redirectLoggedInToHome = () => redirectLoggedInTo(['dashboard']);
 const routes: Routes = [
   {
     path: '',
-    component: SigninComponent,
+    // component: SigninComponent,
     canActivate: [AngularFireAuthGuard],
-    data: {authGuardPipe: redirectLoggedInToHome}
-    // loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+    data: {authGuardPipe: redirectUnauthorizedLogin},
+    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
   },
   {
     path: 'dashboard',
@@ -44,6 +44,12 @@ const routes: Routes = [
     component: ResetPasswordComponent,
     canActivate: [AngularFireAuthGuard],
     data: {authGuardPipe: redirectLoggedInToHome}
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canActivate: [AngularFireAuthGuard],
+    data: {authGuardPipe: redirectUnauthorizedLogin}
   }
 ];
 
