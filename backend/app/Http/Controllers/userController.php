@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class userController extends Controller
 {
@@ -24,5 +25,11 @@ class userController extends Controller
         } else {
             return ['message' => 'Something went wrong'];
         }
+    }
+
+    function signIn(Request $req) {
+        // $user = User::find($req->guid);/
+        return DB::select("select * from users WHERE guid = :guid", ["guid"=>$req->guid]);
+
     }
 }
