@@ -1,0 +1,167 @@
+/* main dashboard */
+.gs-main {
+  display: flex;
+  background-color: #F7F6F9;
+}
+.gs-sidebar {
+  width: 20%;
+  height: 100vh;
+  box-shadow: 0px 0.5px 3px rgb(205, 205, 205);
+  background: white;
+  padding-top: 20px;
+}
+.gs-body {
+  width: 80%;
+  height: 100vh;
+}
+.gs-body-100 {
+  width: 100%;
+  height: 100vh;
+}
+.gs-sidebar-menu-btn {
+  position: absolute;
+  padding: 5px;
+  left: 17%;
+  top: 20px;
+  width: 15px;
+}
+.gs-sidebar-menu-btn img,
+.gs-sidebar-menu-btn-close img {
+  width: 20px;
+}
+.gs-sidebar-menu-btn-close {
+  position: absolute;
+  padding: 5px;
+  left: 3%;
+  top: 15px;
+}
+.gs-sidebar-close {
+  /* transform: translateX(-100%); */
+  display: none;
+}
+.gs-nav {
+  padding: 20px;
+  box-shadow: 1px 1px 3px rgb(205, 205, 205);
+  background: white;
+}
+
+.gs-content {
+    margin: 20px;
+    background: white;
+    height: 500px;
+    padding: 20px;
+}
+
+
+p {
+    font-size: 18px;
+}
+
+.sign-out {
+    cursor: pointer;
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    padding: 20px;
+    border-left: 1px solid rgba(211, 211, 211, 0.445);
+}
+.sign-out:hover {
+  background-color: #F1F1F1;
+
+}
+.logo {
+    text-align: center;
+}
+
+.dash-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .dash-flex div {
+    background-color: #f1f1f1;
+    width: 23%;
+    margin: 10px;
+    text-align: center;
+    font-size: 30px;
+    height: 150px;
+}
+
+.gs-side-links ul {
+  padding-top: 40px;
+}
+.gs-side-links ul li {
+  padding: 15px 30px;
+  font-size: 18px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.215);
+  cursor: pointer;
+}
+.gs-side-links ul li:hover {
+  background-color: #F1F1F1;
+}
+
+/* .gs-courses {
+  display: flex;
+} */
+
+.gs-courses .gs-ind-course {
+  float: left;
+  margin: 5px 10px;
+  padding: 5px;
+  box-shadow: 1px 1px 3px gray;
+  width: 90%;
+  max-width: 300px;
+}
+.gs-courses .gs-ind-course img {
+  width: 96%;
+  height: 210px;
+  padding: 5px;
+}
+
+.gs-courses .gs-ind-course h3,
+.gs-courses .gs-ind-course h4 {
+  padding: 4px 10px;
+
+}
+
+
+
+@media (max-width: 992px){
+  .gs-body {
+    display: none;
+  }
+  .gs-body-100 {
+    width: 100%;
+  }
+  .gs-sidebar {
+    width: 100%;
+  }
+  .gs-sidebar-close {
+    display: none;
+  }
+  .gs-sidebar-menu-btn {
+    left: 90%;
+    top: 18px;
+  }
+  .dash-flex div {
+    background-color: #f1f1f1;
+    width: 40%;
+  }
+}
+
+
+
+.add-btn {
+  background: black;
+  display: block;
+  color: white;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 3px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}

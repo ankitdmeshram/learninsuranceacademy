@@ -8,10 +8,14 @@ import { AuthService } from '../services/auth/auth.service';
 })
 export class AdminComponent {
 
-  constructor(
-    private auth: AuthService
-  ) {
 
+  isOpenSidebar:boolean = true;
+
+  constructor() {
+    if(screen.width < 992)
+    {
+      this.isOpenSidebar = false;
+    }
   }
 
 }

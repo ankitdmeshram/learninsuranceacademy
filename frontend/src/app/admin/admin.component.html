@@ -1,1 +1,25 @@
-<p>admin works!</p>
+<div class="gs-main">
+  <div [ngClass]="isOpenSidebar ? 'gs-sidebar' : 'gs-sidebar-close'">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div
+    (click)="isOpenSidebar = !isOpenSidebar"
+    [ngClass]="
+      isOpenSidebar ? 'gs-sidebar-menu-btn' : 'gs-sidebar-menu-btn-close'
+    "
+  >
+    <img
+      src="https://firebasestorage.googleapis.com/v0/b/learn-insurance-academy.appspot.com/o/menu.png?alt=media&token=12e7686a-a887-49e7-9edc-b6b17b5aa27e"
+      alt="#"
+    />
+  </div>
+  <div [ngClass]="isOpenSidebar ? 'gs-body' : 'gs-body-100'">
+    <div class="gs-nav">
+      <app-header></app-header>
+    </div>
+
+    <div class="gs-content">
+        <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
