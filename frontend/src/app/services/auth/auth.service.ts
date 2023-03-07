@@ -17,7 +17,6 @@ export class AuthService {
     private router: Router,
     private spinner: NgxSpinnerService
   ) {
-    console.log(this.url)
    }
 
   url: string = window.location.href.includes("localhost") ? "http://localhost:8000/api" : "https://lms-backend.ankitmeshram.in/api";
