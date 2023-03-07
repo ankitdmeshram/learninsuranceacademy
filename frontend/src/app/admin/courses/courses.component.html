@@ -1,25 +1,117 @@
 <div class="gs-courses">
+  <button class="add-btn" (click)="isAddCourseForm = true">Add Courses</button>
+
+  <div class="gs-pro-form" *ngIf="isAddCourseForm">
+    <h1> {{isEditCourseForm ? cname.value : "Add Course"}}</h1>
+
+    <div class="gs-container">
+      <form [formGroup]="courseForm">
+        <div class="form-group">
+          <p class="w-100">Course Name</p>
+          <input type="text" formControlName="course_name" class="w-100" id="course_name" class="w-100" />
+          <div *ngIf="cname.invalid && (cname.dirty || cname.touched)" class="invalid-feedback">
+            <div *ngIf="cname.errors?.['required']">
+              This field is required.
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <p class="w-100">Course Description</p>
+          <angular-editor formControlName="course_description" [config]="editorConfig"></angular-editor>
+
+          <!-- <input
+            type="text"
+            formControlName="course_description"
+            class="w-100"
+            id="course_description"
+            class="w-100"
+          /> -->
+        </div>
+        <div class="form-100">
+          <div class="form-group form-50">
+            <p class="w-100">Course Price</p>
+            <input type="text" formControlName="course_price" class="w-100" id="course_price" class="w-100" />
+            <div *ngIf="price.invalid && (price.dirty || price.touched)" class="invalid-feedback">
+              <div *ngIf="price.errors?.['required']">
+                This field is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group form-50">
+            <p class="w-100">Course Discounted Price</p>
+            <input type="text" formControlName="course_discount_price" class="w-100" id="course_discount_price"
+              class="w-100" />
+          </div>
+        </div>
+        <div class="form-100">
+          <div class="form-group form-50">
+            <p class="w-100">Course Duration</p>
+            <input type="text" formControlName="course_duration" class="w-100" id="course_duration" class="w-100" />
+          </div>
+          <div class="form-group form-50">
+            <p class="w-100">Course Extended Duration</p>
+            <input type="text" formControlName="course_extended_duration" class="w-100" id="course_extended_duration"
+              class="w-100" />
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+          <p class="w-100 mt-10">  <br />Course Image</p>
+          <input type="text" formControlName="course_image" class="w-100" id="course_image" class="w-100" />
+        </div>
+        <div class="form-group">
+          <p class="w-100">Course Instructor</p>
+          <input type="text" formControlName="course_instructor" class="w-100" id="course_instructor" class="w-100" />
+        </div>
+
+        <button class="add-btn" style="margin-top: 10px" *ngIf="!courseForm.invalid && !isEditCourseForm"
+          (click)="addCourse()">
+          Add Course
+        </button>
+        <button class="add-btn add-btn-dis" *ngIf="courseForm.invalid  && !isEditCourseForm" disabled
+          (click)="addCourse()">
+          Add Course
+        </button>
+
+        <button class="add-btn" style="margin-top: 10px" *ngIf="!courseForm.invalid && isEditCourseForm"
+          (click)="updateCourse()">Update Course</button>
+        <button class="add-btn add-btn-dis" *ngIf="courseForm.invalid  && isEditCourseForm" disabled
+          (click)="updateCourse()">
+          Update Course
+        </button>
+        <button class="add-btn" (click)="cancel()">
+          Cancel
+        </button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="course-table">
+    <table>
+      <tr>
+        <th>Sr. No</th>
+        <th>Course Name</th>
+        <th>Course Image</th>
+        <th>Course Instructor</th>
+        <th>Course Duration</th>
+        <th>Course Price</th>
+        <th>Updated At</th>
+        <th>Created At</th>
+        <th>Actions</th>
+      </tr>
+      <tr *ngFor="let course of courses; index as i">
+        <td>{{i+1}}</td>
+        <td (click)="viewCourse(course, i)" style="cursor: pointer">{{course.course_name}}</td>
+        <td>{{course.course_image}}</td>
+        <td>{{course.course_instructor}}</td>
+        <td>{{course.course_duration}}</td>
+        <td>{{course.course_price}}</td>
+        <td>{{course.updated_at}}</td>
+        <td>{{course.created_at}}</td>
+        <td><button class="add-btn" (click)="deleteCourse(course, i)">Delete</button></td>
+      </tr>
+    </table>
+  </div>
 
 
-  <div class="gs-ind-course">
-    <img
-      src="https://firebasestorage.googleapis.com/v0/b/learn-insurance-academy.appspot.com/o/ss.png?alt=media&token=5a31cfa7-b2aa-4c12-983f-00aa5c8b06b0"
-    />
-    <h3>Course Name</h3>
-    <h4>Prof. ABC DEF</h4>
-  </div>
-  <div class="gs-ind-course">
-    <img
-      src="https://firebasestorage.googleapis.com/v0/b/learn-insurance-academy.appspot.com/o/ss.png?alt=media&token=5a31cfa7-b2aa-4c12-983f-00aa5c8b06b0"
-    />
-    <h3>Course Name</h3>
-    <h4>Prof. ABC DEF</h4>
-  </div>
-  <div class="gs-ind-course">
-    <img
-      src="https://firebasestorage.googleapis.com/v0/b/learn-insurance-academy.appspot.com/o/ss.png?alt=media&token=5a31cfa7-b2aa-4c12-983f-00aa5c8b06b0"
-    />
-    <h3>Course Name</h3>
-    <h4>Prof. ABC DEF</h4>
-  </div>
 </div>

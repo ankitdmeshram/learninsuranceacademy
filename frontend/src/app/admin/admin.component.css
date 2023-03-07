@@ -1,14 +1,14 @@
 /* main dashboard */
 .gs-main {
   display: flex;
-  background-color: #F7F6F9;
+  background-color: #f7f6f9;
 }
 .gs-sidebar {
   width: 20%;
   height: 100vh;
   box-shadow: 0px 0.5px 3px rgb(205, 205, 205);
   background: white;
-  padding-top: 20px;
+  /* padding-top: 20px; */
 }
 .gs-body {
   width: 80%;
@@ -46,46 +46,44 @@
 }
 
 .gs-content {
-    margin: 20px;
-    background: white;
-    height: 500px;
-    padding: 20px;
+  margin: 20px;
+  background: white;
+  height: 500px;
+  padding: 20px;
 }
 
-
 p {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .sign-out {
-    cursor: pointer;
-    top: 0px;
-    right: 0px;
-    position: absolute;
-    padding: 20px;
-    border-left: 1px solid rgba(211, 211, 211, 0.445);
+  cursor: pointer;
+  top: 0px;
+  right: 0px;
+  position: absolute;
+  padding: 20px;
+  border-left: 1px solid rgba(211, 211, 211, 0.445);
 }
 .sign-out:hover {
-  background-color: #F1F1F1;
-
+  background-color: #f1f1f1;
 }
 .logo {
-    text-align: center;
+  text-align: center;
 }
 
 .dash-flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-  .dash-flex div {
-    background-color: #f1f1f1;
-    width: 23%;
-    margin: 10px;
-    text-align: center;
-    font-size: 30px;
-    height: 150px;
+.dash-flex div {
+  background-color: #f1f1f1;
+  width: 23%;
+  margin: 10px;
+  text-align: center;
+  font-size: 30px;
+  height: 150px;
 }
 
 .gs-side-links ul {
@@ -98,7 +96,7 @@ p {
   cursor: pointer;
 }
 .gs-side-links ul li:hover {
-  background-color: #F1F1F1;
+  background-color: #f1f1f1;
 }
 
 /* .gs-courses {
@@ -122,12 +120,9 @@ p {
 .gs-courses .gs-ind-course h3,
 .gs-courses .gs-ind-course h4 {
   padding: 4px 10px;
-
 }
 
-
-
-@media (max-width: 992px){
+@media (max-width: 992px) {
   .gs-body {
     display: none;
   }
@@ -150,8 +145,6 @@ p {
   }
 }
 
-
-
 .add-btn {
   background: black;
   display: block;
@@ -162,6 +155,68 @@ p {
   font-size: 16px;
   font-weight: 600;
   border-radius: 3px;
-  margin-left: 10px;
+  margin-left: 0px;
   margin-bottom: 20px;
+}
+.add-btn-dis {
+  background: rgba(0, 0, 0, 0.425);
+  margin-left: 0px;
+  margin-top: 10px;
+}
+
+.gs-pro-form {
+  height: 100vh;
+  width: 95%;
+  /* max-width: 1200px; */
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  right: 0;
+  transition: 5s;
+  box-shadow: 1px 1px 10px grey;
+  padding: 10px;
+  overflow: scroll;
+}
+
+.gs-courses .gs-pro-form .form-group p {
+  margin: 10px 0px 5px 0px;
+}
+.gs-courses .gs-pro-form .form-group input {
+  padding: 7px 0px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.invalid-feedback {
+  color: orangered;
+}
+.form-50 {
+  width: 48%;
+  float: left;
+  margin-right: 2%;
+}
+.form-100 {
+  width: 100%;
+  float: left;
+}
+.mt-10 {
+  margin-top: 10px !important;
+}
+
+.gs-courses .course-table {
+  overflow: scroll;
+}
+.gs-courses table {
+  width: 100%;
+}
+.gs-courses table {
+  border: 1px solid black;
+}
+.gs-courses tr,
+th,
+td {
+  border: 1px solid black;
+  padding: 5px;
 }

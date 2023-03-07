@@ -7,6 +7,8 @@ import { HeaderComponent } from './layouts/header/header.component';
 import { SidebarComponent } from './layouts/sidebar/sidebar.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { CoursesComponent } from './courses/courses.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { CoursesComponent } from './courses/courses.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    ReactiveFormsModule,
+    AngularEditorModule
   ]
 })
 export class AdminModule { }
