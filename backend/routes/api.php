@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\courseController;
 use App\Http\Controllers\userController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,3 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('signup', [userController::class, 'signUp']);
 Route::post('signin', [userController::class, 'signIn']);
+
+Route::get('courses', [courseController::class, 'courses']);
+Route::post('addcourse', [courseController::class, 'addCourse']);
+Route::post('updatecourse', [courseController::class, 'updateCourse']);
+Route::post('deletecourse', [courseController::class, 'deleteCourse']);
