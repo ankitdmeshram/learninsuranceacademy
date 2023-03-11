@@ -29,4 +29,20 @@ export class CourseService {
     return this.http.post(`${this.url}/updatecourse`, data);
   }
 
+  viewLessons = () => {
+    return this.http.get(`${this.url}/lessons`);
+  }
+
+  addLesson = (data: any) => {
+    return this.http.post(`${this.url}/addlesson`, data);
+  }
+
+  updateLesson = (data: any) => {
+    return this.http.post(`${this.url}/updatelesson`, data);
+  }
+
+  deleteLesson = (data: any) => {
+    return this.http.post(`${this.url}/deletelesson`, data);
+  }
+
 }
