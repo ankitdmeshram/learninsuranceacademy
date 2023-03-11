@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Lesson;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -65,6 +66,62 @@ class courseController extends Controller
             return ['success' => $course];
         } else {
             return ['message' => "Something went wrong"];
+        }
+    }
+
+    function lessons()
+    {
+        return DB::select("select * FROM lessons");
+    }
+
+    function addLesson(Request $req)
+    {
+        $lesson = new Lesson;
+
+        $lesson->course_id = $req->course_id;
+        $lesson->lesson_name = $req->lesson_name;
+        $lesson->lesson_description = $req->lesson_description;
+        $lesson->lesson_type = $req->lesson_type;
+        $lesson->lesson_url = $req->lesson_url;
+
+        $result = $lesson->save();
+
+        if ($result) {
+            return ["success" => $lesson];
+        } else {
+            return ["message" => "Something went wrong"];
+        }
+    }
+
+    function updateLesson(Request $req)
+    {
+        $lesson = Lesson::find($req->id);
+
+        $lesson->course_id = $req->course_id;
+        $lesson->lesson_name = $req->lesson_name;
+        $lesson->lesson_description = $req->lesson_description;
+        $lesson->lesson_type = $req->lesson_type;
+        $lesson->lesson_url = $req->lesson_url;
+
+        $result = $lesson->save();
+
+        if ($result) {
+            return ["success" => $lesson];
+        } else {
+            return ["message" => "Something went wrong"];
+        }
+
+    }
+
+    function deleteLesson(Request $req)
+    {
+        $lesson = Lesson::find($req->id);
+        $result = $lesson->delete();
+
+        if ($result) {
+            return ["message" => " Deleted Successfully"];
+        } else {
+            return ["message" => "Something went wrong"];
         }
     }
 }
