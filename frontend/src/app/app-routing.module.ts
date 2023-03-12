@@ -14,42 +14,42 @@ const redirectLoggedInToHome = () => redirectLoggedInTo(['dashboard']);
 
 
 const routes: Routes = [
-  {
-    path: '',
-    // component: SigninComponent,
-    canActivate: [AngularFireAuthGuard],
-    data: {authGuardPipe: redirectUnauthorizedLogin},
-    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
-  },
+  // {
+  //   path: '',
+  //   // component: SigninComponent,
+  //   canActivate: [AngularFireAuthGuard],
+  //   data: {authGuardPipe: redirectUnauthorizedLogin},
+  //   loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+  // },
   {
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
     canActivate: [AngularFireAuthGuard],
-    data: {authGuardPipe: redirectUnauthorizedLogin}
+    data: { authGuardPipe: redirectUnauthorizedLogin }
   },
   {
     path: 'signin',
     component: SigninComponent,
     canActivate: [AngularFireAuthGuard],
-    data: {authGuardPipe: redirectLoggedInToHome}
+    data: { authGuardPipe: redirectLoggedInToHome }
   },
   {
     path: 'signup',
     component: SignupComponent,
     canActivate: [AngularFireAuthGuard],
-    data: {authGuardPipe: redirectLoggedInToHome}
+    data: { authGuardPipe: redirectLoggedInToHome }
   },
   {
     path: 'reset-password',
     component: ResetPasswordComponent,
     canActivate: [AngularFireAuthGuard],
-    data: {authGuardPipe: redirectLoggedInToHome}
+    data: { authGuardPipe: redirectLoggedInToHome }
   },
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
     canActivate: [AngularFireAuthGuard],
-    data: {authGuardPipe: redirectUnauthorizedLogin}
+    data: { authGuardPipe: redirectUnauthorizedLogin }
   }
 ];
 
