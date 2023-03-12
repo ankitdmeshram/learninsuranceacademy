@@ -32,4 +32,9 @@ class userController extends Controller
         return DB::select("select * from users WHERE guid = :guid", ["guid"=>$req->guid]);
 
     }
+
+    function users(Request $req) {
+        return User::all();
+    }
+
 }
