@@ -37,4 +37,20 @@ class userController extends Controller
         return User::all();
     }
 
+    function updateUser(Request $req)
+    {
+        $user = User::find($req->id);
+        $user->name = $req->name;
+        $user->phone = $req->phone;
+        $user->role = $req->role;
+
+        $result = $user->save();
+
+        if ($result) {
+            return ['success' => $user];
+        } else {
+            return ['message' => "Something went wrong"];
+        }
+    }
+
 }
