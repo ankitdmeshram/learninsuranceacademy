@@ -16,6 +16,10 @@ export class UserService {
     return this.http.get(`${this.url}/users`);
   }
 
+  updateUser = (data: any) => {
+    return this.http.post(`${this.url}/updateuser`, data);
+  }
+
 
 
 }

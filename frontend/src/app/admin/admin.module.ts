@@ -9,6 +9,7 @@ import { AnalyticsComponent } from './analytics/analytics.component';
 import { CoursesComponent } from './courses/courses.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { UsersComponent } from './users/users.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     HeaderComponent,
     SidebarComponent,
     AnalyticsComponent,
-    CoursesComponent
+    CoursesComponent,
+    UsersComponent
   ],
   imports: [
     CommonModule,
