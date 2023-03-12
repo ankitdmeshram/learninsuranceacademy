@@ -1,5 +1,8 @@
 <p style="padding-left:60px">Hello, Ankit Meshram</p>
 
+<div *ngIf="usersData?.role == 87" routerLink="../admin" class="goto-admin">
+  <p>Admin</p>
+</div>
 <div  (click)="signOut()" class="sign-out">
   <p>Sign Out</p>
 </div>

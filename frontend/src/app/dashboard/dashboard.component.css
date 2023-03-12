@@ -68,6 +68,17 @@ p {
   background-color: #F1F1F1;
 
 }
+.goto-admin {
+  cursor: pointer;
+  top: 0px;
+  right: 8%;
+  position: absolute;
+  padding: 20px;
+}
+.goto-admin:hover {
+  background-color: #F1F1F1;
+}
+
 .logo {
     text-align: center;
 }
