@@ -2,9 +2,9 @@
 
 <div class="gs-side-links">
   <ul>
-    <li routerLink="../admin">Dashboard</li>
-    <li routerLink="./courses">Courses</li>
-    <li>Orders</li>
-    <li routerLink="./users">Users</li>
+
+    <li *ngFor="let menu of sideBarMenu" (click)="toNavigate(menu.link)">
+      {{menu.text}}
+    </li>
   </ul>
 </div>
