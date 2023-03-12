@@ -17,7 +17,7 @@ export class AuthService {
     private router: Router,
     private spinner: NgxSpinnerService
   ) {
-   }
+  }
 
   url: string = window.location.href.includes("localhost") ? "http://localhost:8000/api" : "https://lms-backend.ankitmeshram.in/api";
 
@@ -27,11 +27,11 @@ export class AuthService {
       .then((res) => {
         this.toastr.success("Sign In Successfully");
         this.router.navigate(['/dashboard']);
-        console.log(res)
+
         this.spinner.hide()
       }).catch((err) => {
         this.toastr.error("Something went wrong");
-        console.log(err);
+        ;
         this.spinner.hide()
       })
   }
@@ -39,24 +39,22 @@ export class AuthService {
   signUp = (data: any) => {
     const { email, password, phone, name } = data;
     return this.auth.createUserWithEmailAndPassword(email, password)
-      .then((res:any) => {
-        console.log(res)
-        // let id = /
+      .then((res: any) => {
+
         let data = {
           "name": name,
           "email": email,
           "phone": phone,
           "guid": res.user.multiFactor.user.uid
         }
-        this.http.post(`${this.url}/signup`, data).subscribe((res) => console.log(res))
+        this.http.post(`${this.url}/signup`, data).subscribe()
 
-        console.log(res);
         this.toastr.success("SignUp Successfully");
         this.router.navigate(['/dashboard'])
         this.spinner.hide()
       }).catch((err) => {
         this.toastr.error("Something went wrong");
-        console.log(err);
+        ;
         this.spinner.hide()
       })
   }
@@ -70,7 +68,7 @@ export class AuthService {
         this.spinner.hide()
       }).catch((err) => {
         this.toastr.error("Something went wrong");
-        console.log(err);
+        ;
         this.spinner.hide()
       })
   }
@@ -81,12 +79,12 @@ export class AuthService {
 
   signOut = () => {
     return this.auth.signOut()
-    .then((res) => {
-      this.router.navigate(['../']);
-      this.toastr.success("Sign Out Successfully");
-    }).catch((err) => {
-      this.toastr.error("Something went wrong");
-    })
+      .then((res) => {
+        this.router.navigate(['../']);
+        this.toastr.success("Sign Out Successfully");
+      }).catch((err) => {
+        this.toastr.error("Something went wrong");
+      })
   }
 
 

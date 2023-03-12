@@ -27,7 +27,6 @@ export class AdminComponent {
     let userDetails = this.auth.getUser().then((res: any) => {
       this.userEmail = res.multiFactor.user.email
     })
-    console.log(this.auth.getUser);
     this.user.Users()
       .subscribe((res: any) => {
         this.usersData = res;
@@ -39,7 +38,7 @@ export class AdminComponent {
               this.toastr.error("You are not allowed to visit admin site");
               this.router.navigate(['../'])
             }
-            console.log(res)
+
           }
         })
       })

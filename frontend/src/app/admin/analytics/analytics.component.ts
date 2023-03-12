@@ -37,7 +37,7 @@ export class AnalyticsComponent {
     this.spinner.show();
     this.course.viewCourses()
       .subscribe((res: any) => {
-        console.log(res)
+
         this.courseCount = res.length
         this.isAllLoad++;
         this.Loading()

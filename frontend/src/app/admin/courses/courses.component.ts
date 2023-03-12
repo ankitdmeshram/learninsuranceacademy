@@ -86,7 +86,7 @@ export class CoursesComponent {
     this.spinner.show()
     this.course.addCourse(this.courseForm.value)
       .subscribe((res: any) => {
-        console.log(res)
+
         this.currentCourse = res.success
 
         this.lessonForm.setValue({
