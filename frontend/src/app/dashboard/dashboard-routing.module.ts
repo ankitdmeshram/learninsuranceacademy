@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { CoursesComponent } from './courses/courses.component';
 import { DashboardComponent } from './dashboard.component';
+import { LessonsComponent } from './lessons/lessons.component';
 
 
 const routes: Routes = [
@@ -15,14 +16,18 @@ const routes: Routes = [
         component: AnalyticsComponent
       },
       {
-      path: 'courses',
-      component: CoursesComponent
+        path: 'courses',
+        component: CoursesComponent
       },
+      {
+        path: 'lessons/:id',
+        component: LessonsComponent
+      }
       // {
       // path: 'project/:id',
       // component: ProjectDetailsComponent
       // }
-  ]
+    ]
   },
 
 ];
