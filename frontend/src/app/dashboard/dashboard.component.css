@@ -47,8 +47,9 @@
 .gs-content {
     margin: 20px;
     background: white;
-    height: 500px;
+    height: 80%;
     padding: 20px;
+    overflow-y: scroll;
 }
 
 
