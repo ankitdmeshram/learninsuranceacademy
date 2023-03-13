@@ -1,1 +1,20 @@
-<p>lessons works!</p>
+<div class="gs-lessons">
+  <div class="les-side">
+    <ul>
+      <li *ngFor="let lesson of lessons; index as i" (click)="selectLesson(lesson)">{{lesson.lesson_name}}</li>
+    </ul>
+  </div>
+  <div class="les-body">
+    <div class="les-video">
+      <div class="les-yt" *ngIf="currentLesson && currentLesson.lesson_type == 'Youtube'">
+        <iframe [src]="lessonUrl" frameborder="0"></iframe>
+        <!-- <p [innerHTML]="currentLesson?.lesson_description"></p> -->
+      </div>
+
+      <div class="les-vm" *ngIf="currentLesson && currentLesson.lesson_type == 'Vimeo'">
+        <div style="padding:56.25% 0 0 0;position:relative;"><iframe  [src]="lessonUrl"  frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="pexels-robert-daniel-9440173"></iframe></div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+      </div>
+    </div>
+  </div>
+</div>

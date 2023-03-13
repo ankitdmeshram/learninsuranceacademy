@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 import { CourseService } from 'src/app/services/course.service';
 import { HelperService } from 'src/app/services/helper/helper.service';
 
@@ -10,32 +12,44 @@ import { HelperService } from 'src/app/services/helper/helper.service';
   styleUrls: ['./lessons.component.css']
 })
 export class LessonsComponent {
+
+  lessonsCopy: any;
   constructor(
     private course: CourseService,
-    private helper: HelperService,
     private spinner: NgxSpinnerService,
-    private router: Router,
-    private route: ActivatedRoute
-
+    private route: ActivatedRoute,
+    private toastr: ToastrService,
+    private sanitizer: DomSanitizer
   ) {
-
+    this.spinner.show();
     this.courseId = this.route.snapshot.paramMap.get('id');
-    // this.helper.loadSideBarMenu()
-  }
-
-  ngViewInit() {
-    // this.helper.loadSideBarMenu()
-
+    this.viewLessons();
   }
 
   courseId: any;
   lessons: any = []
+  currentLesson: any = null;
+  lessonUrl: any = null
+
+  selectLesson = (lesson: any) => {
+    this.currentLesson = lesson
+    this.lessonUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`${this.currentLesson.lesson_url}?controls=1`)
+  }
 
   viewLessons = () => {
     this.course.viewLessons()
       .subscribe((res: any) => {
-
-      })
+        res.filter((res: any) => {
+          if (res.course_id == this.courseId) {
+            this.lessons.push(res);
+          }
+        })
+        this.selectLesson(this.lessons[0])
+        this.spinner.hide();
+      },
+        (err) => {
+          this.toastr.error("Something went wrong");
+        }
+      )
   }
-
 }
