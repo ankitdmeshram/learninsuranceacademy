@@ -15,6 +15,25 @@ class courseController extends Controller
         return DB::select("select * FROM courses");
     }
 
+    function homeView()
+    {
+        $courses = DB::select("select * FROM courses");
+        return view('home', ['courses' => $courses]);
+    }
+
+    function courseView()
+    {
+        $courses = DB::select("select * FROM courses");
+        return view('courses', ['courses' => $courses]);
+    }
+
+    function indCourseView(Request $req)
+    {
+        $courses = DB::select("select * FROM courses WHERE id = " . $req->id);
+        $lessons = DB::select("select * FROM lessons WHERE course_id = " . $req->id);
+        return view('course-individual', ['courses' => $courses, 'lessons' => $lessons]);
+    }
+
     function addCourse(Request $req)
     {
         $course = new Course;
@@ -110,7 +129,6 @@ class courseController extends Controller
         } else {
             return ["message" => "Something went wrong"];
         }
-
     }
 
     function deleteLesson(Request $req)
