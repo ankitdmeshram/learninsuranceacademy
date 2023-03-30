@@ -13,7 +13,8 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: AnalyticsComponent
+        redirectTo: 'courses',
+        pathMatch: 'full'
       },
       {
         path: 'courses',
@@ -23,10 +24,6 @@ const routes: Routes = [
         path: 'lessons/:id',
         component: LessonsComponent
       }
-      // {
-      // path: 'project/:id',
-      // component: ProjectDetailsComponent
-      // }
     ]
   },
 

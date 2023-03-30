@@ -16,10 +16,6 @@ export class HelperService {
     if (this.router.url.includes("dashboard")) {
       return this.sideBarMenu = [
         {
-          link: "./dashboard",
-          text: "Dashboard"
-        },
-        {
           link: "./dashboard/courses",
           text: "Courses"
         },
