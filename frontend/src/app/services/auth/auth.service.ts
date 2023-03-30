@@ -26,9 +26,9 @@ export class AuthService {
     return this.auth.signInWithEmailAndPassword(email, password)
       .then((res) => {
         this.toastr.success("Sign In Successfully");
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard/courses']);
 
-        this.spinner.hide()
+        // this.spinner.hide()
       }).catch((err) => {
         this.toastr.error("Something went wrong");
         ;
@@ -50,8 +50,8 @@ export class AuthService {
         this.http.post(`${this.url}/signup`, data).subscribe()
 
         this.toastr.success("SignUp Successfully");
-        this.router.navigate(['/dashboard'])
-        this.spinner.hide()
+        this.router.navigate(['/dashboard/courses'])
+        // this.spinner.hide()
       }).catch((err) => {
         this.toastr.error("Something went wrong");
         ;
