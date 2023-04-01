@@ -14,21 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
 Route::get('/', [courseController::class, 'homeView']);
 
 Route::get('/about', function () {
     return view('about');
 });
-// Route::get('/courses', function () {
-//     return view('courses');l
-// });
+
+Route::get('/courses', [courseController::class, 'courseView']);
 Route::get('/courses', [courseController::class, 'courseView']);
 
 Route::get('/courses/{id}', [courseController::class, 'indCourseView']);
 
-// Route::get('/courses/ind', function () {
-//     return view('course-individual');
-// });
+Route::get('/contact', [courseController::class, 'contactView']);
+
+Route::get('/initiate', 'App\Http\Controllers\OrderController@initiate')->name('initiate.payment');
+
+Route::post('/payment','App\Http\Controllers\OrderController@pay')->name('make.payment');
+Route::post('/payment/status', 'App\Http\Controllers\OrderController@paymentCallback')->name('status');
