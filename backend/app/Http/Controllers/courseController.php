@@ -27,6 +27,10 @@ class courseController extends Controller
         return view('courses', ['courses' => $courses]);
     }
 
+    function contactView() {
+        return view('contact');
+    }
+
     function indCourseView(Request $req)
     {
         $courses = DB::select("select * FROM courses WHERE id = " . $req->id);
