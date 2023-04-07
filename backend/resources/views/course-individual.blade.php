@@ -278,7 +278,7 @@
         <div class="mid-header">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container">
-                    <a class="navbar-brand" href="./">
+                    <a class="navbar-brand" href="../">
                         <img src="../logo.png" class="img-fluid" width="200" alt="Learn Insurance Academy">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -297,7 +297,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="../courses">Courses</a>
                             </li>
-                         
+
                             <li class="nav-item">
                                 <a class="nav-link" href="../contact">Contact Us</a>
                             </li>
@@ -329,8 +329,46 @@
                                 <img src="../Screenshot_11.png" class="img-fluid" />
                             </div>
                             <div class="gs-cou-text p-3">
-                                <p class="text-bold"> Rs.{{$course->course_price}} <strike>{{$course->course_discount_price ? 'Rs.' . $course->course_discount_price : ''}}</strike> </p>
-                                <button class="gs-btn" style="margin:0; width: 100%">Buy Now</button>
+                                <p class="text-bold"> Rs. {{$course->course_discount_price ? $course->course_discount_price : $course->course_price}} <strike>{{!$course->course_discount_price ? '' : 'Rs.' . $course->course_price}}</strike> </p>
+                                <button class="gs-btn" style="margin:0; width: 100%" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" >Buy Now</button>
+
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">{{$course->course_name}}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <form action="{{ route('make.payment') }}" method="POST" enctype="multipart/form-data">
+                                            {!! csrf_field() !!}
+
+                                            <div class="form-group">
+                                                <label for="Name">Your Name</label>
+                                                <input required type="text" name="name"  class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Email">Your Email</label>
+                                                <input required type="text" name="email"  class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Phone">Your Phone</label>
+                                                <input required type="text" name="mobile"  class="form-control">
+                                            </div>
+                                            <input required type="hidden" name="course_id" value="{{$course->id}}">
+                                            <input required type="hidden" name="course_amount" value="{{$course->course_discount_price ? $course->course_discount_price : $course->course_price}}">
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-primary">Buy Now</button>
+                                                </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                                </div>
+                            </div>
                                 <!-- <p>This Course Includes: </p>
                                 <ul>
                                     <li>No Prerequisite Required</li>

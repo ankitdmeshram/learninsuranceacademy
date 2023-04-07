@@ -31,3 +31,5 @@ Route::get('/initiate', 'App\Http\Controllers\OrderController@initiate')->name('
 
 Route::post('/payment','App\Http\Controllers\OrderController@pay')->name('make.payment');
 Route::post('/payment/status', 'App\Http\Controllers\OrderController@paymentCallback')->name('status');
+
+// Route::post('order', 'App\Http\Controllers\OrderController@paymentCallback')->name('status');

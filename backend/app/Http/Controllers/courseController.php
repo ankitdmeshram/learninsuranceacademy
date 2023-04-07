@@ -4,15 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\Lesson;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class courseController extends Controller
 {
 
-    function courses()
+    function courses(Request $req)
     {
         return DB::select("select * FROM courses");
+
+        // if ($req->email == null) {
+        //     return DB::select("select * FROM courses");
+        // } else {
+        //     $order = DB::select("select course_id from orders where email = '" . $req->email . "'");
+        //     $order = array_column($order, 'course_id');
+        //     // $order =  implode(', ', array_column($order, 'course_id'));
+        //     // return DB::select("select * from courses where id in (1,2));
+        // }
     }
 
     function homeView()
@@ -27,7 +37,8 @@ class courseController extends Controller
         return view('courses', ['courses' => $courses]);
     }
 
-    function contactView() {
+    function contactView()
+    {
         return view('contact');
     }
 
@@ -145,5 +156,14 @@ class courseController extends Controller
         } else {
             return ["message" => "Something went wrong"];
         }
+    }
+
+
+    function myOrders(Request $req)
+    {
+        $email = $req->email;
+        return DB::table('orders')->where('email', $email)->get();
+        //return DB::select("SELECT * FROM orders WHERE email = " . mysqli_real_escape_string($req->email));
+
     }
 }

@@ -123,7 +123,7 @@
                     <div class="col-lg-4">
                         <div class="course-box">
                             <div class="text-center">
-                                <img src="Screenshot_11.png" class="img-fluid">
+                                <img src="Screenshot_11.png" class="img-fluid" onClick="location.href =  `{{'courses/' . $course->id}}`">
                             </div>
                             <div class="desc-box">
                                 <h4>{{$course->course_name}}</h4>

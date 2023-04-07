@@ -25,7 +25,7 @@ Route::post('signin', [userController::class, 'signIn']);
 Route::get('users', [userController::class, 'users']);
 Route::post('updateuser', [userController::class, 'updateUser']);
 
-Route::get('courses', [courseController::class, 'courses']);
+Route::post('courses', [courseController::class, 'courses']);
 Route::post('addcourse', [courseController::class, 'addCourse']);
 Route::post('updatecourse', [courseController::class, 'updateCourse']);
 Route::post('deletecourse', [courseController::class, 'deleteCourse']);
@@ -34,3 +34,5 @@ Route::get('lessons', [courseController::class, 'lessons']);
 Route::post('addlesson', [courseController::class, 'addLesson']);
 Route::post('updatelesson', [courseController::class, 'updateLesson']);
 Route::post('deletelesson', [courseController::class, 'deleteLesson']);
+
+Route::post('myorders', [courseController::class, 'myOrders']);
