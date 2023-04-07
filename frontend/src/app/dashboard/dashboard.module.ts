@@ -7,6 +7,7 @@ import { SidebarComponent } from './layouts/sidebar/sidebar.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { CoursesComponent } from './courses/courses.component';
 import { LessonsComponent } from './lessons/lessons.component';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { LessonsComponent } from './lessons/lessons.component';
     HeaderComponent,
     SidebarComponent,
     CoursesComponent,
-    LessonsComponent
+    LessonsComponent,
+    OrdersComponent
   ],
   imports: [
     CommonModule,

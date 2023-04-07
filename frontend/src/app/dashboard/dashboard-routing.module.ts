@@ -4,6 +4,7 @@ import { AnalyticsComponent } from './analytics/analytics.component';
 import { CoursesComponent } from './courses/courses.component';
 import { DashboardComponent } from './dashboard.component';
 import { LessonsComponent } from './lessons/lessons.component';
+import { OrdersComponent } from './orders/orders.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
       {
         path: 'lessons/:id',
         component: LessonsComponent
+      },
+      {
+        path: 'orders',
+        component: OrdersComponent
       }
     ]
   },

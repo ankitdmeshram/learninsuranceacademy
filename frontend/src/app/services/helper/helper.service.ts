@@ -20,13 +20,14 @@ export class HelperService {
           text: "Courses"
         },
         {
-          link: "./dashboard",
+          link: "./dashboard/orders",
           text: "Orders"
         },
         {
           link: "./dashboard",
           text: "Profile"
         },
+
       ]
     } else if (this.router.url.includes("admin")) {
       return this.sideBarMenu = [

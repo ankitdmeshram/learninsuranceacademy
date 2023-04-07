@@ -1,7 +1,7 @@
 /* main dashboard */
 .gs-main {
   display: flex;
-  background-color: #F7F6F9;
+  background-color: #f7f6f9;
 }
 .gs-sidebar {
   width: 20%;
@@ -45,29 +45,27 @@
 }
 
 .gs-content {
-    margin: 20px;
-    background: white;
-    height: 80%;
-    padding: 20px;
-    overflow-y: scroll;
+  margin: 20px;
+  background: white;
+  height: 80%;
+  padding: 20px;
+  overflow-y: scroll;
 }
 
-
 p {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .sign-out {
-    cursor: pointer;
-    top: 0px;
-    right: 0px;
-    position: absolute;
-    padding: 20px;
-    border-left: 1px solid rgba(211, 211, 211, 0.445);
+  cursor: pointer;
+  top: 0px;
+  right: 0px;
+  position: absolute;
+  padding: 20px;
+  border-left: 1px solid rgba(211, 211, 211, 0.445);
 }
 .sign-out:hover {
-  background-color: #F1F1F1;
-
+  background-color: #f1f1f1;
 }
 .goto-admin {
   cursor: pointer;
@@ -77,26 +75,26 @@ p {
   padding: 20px;
 }
 .goto-admin:hover {
-  background-color: #F1F1F1;
+  background-color: #f1f1f1;
 }
 
 .logo {
-    text-align: center;
+  text-align: center;
 }
 
 .dash-flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-  .dash-flex div {
-    background-color: #f1f1f1;
-    width: 23%;
-    margin: 10px;
-    text-align: center;
-    font-size: 30px;
-    height: 150px;
+.dash-flex div {
+  background-color: #f1f1f1;
+  width: 23%;
+  margin: 10px;
+  text-align: center;
+  font-size: 30px;
+  height: 150px;
 }
 
 .gs-side-links ul {
@@ -109,12 +107,13 @@ p {
   cursor: pointer;
 }
 .gs-side-links ul li:hover {
-  background-color: #F1F1F1;
+  background-color: #f1f1f1;
 }
 
-.gs-courses {
-  /* display: flex; */
-}
+/* .gs-courses {
+  /* display: flex;
+} */
+
 .gs-courses .gs-ind-course {
   float: left;
   margin: 5px 10px;
@@ -132,12 +131,9 @@ p {
 .gs-courses .gs-ind-course h3,
 .gs-courses .gs-ind-course h4 {
   padding: 4px 10px;
-
 }
 
-
-
-@media (max-width: 992px){
+@media (max-width: 992px) {
   .gs-body {
     display: none;
   }
@@ -160,4 +156,18 @@ p {
   }
 }
 
-
+.gs-courses .course-table {
+  overflow: scroll;
+}
+.gs-courses table {
+  width: 100%;
+}
+.gs-courses table {
+  border: 1px solid black;
+}
+.gs-courses tr,
+th,
+td {
+  border: 1px solid black;
+  padding: 5px;
+}
