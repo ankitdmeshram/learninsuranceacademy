@@ -70,7 +70,7 @@ export class CoursesComponent {
 
   Courses = () => {
     this.spinner.show()
-    this.course.viewCourses()
+    this.course.viewCourses({email: null})
       .subscribe((res) => {
         this.courses = res;
         this.spinner.hide();

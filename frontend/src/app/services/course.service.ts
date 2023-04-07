@@ -13,8 +13,8 @@ export class CourseService {
     private http: HttpClient
   ) { }
 
-  viewCourses = () => {
-    return this.http.get(`${this.url}/courses`);
+  viewCourses = (data:any) => {
+    return this.http.post(`${this.url}/courses`, data);
   }
 
   addCourse = (data: any) => {
@@ -27,6 +27,10 @@ export class CourseService {
 
   updateCourse = (data: any) => {
     return this.http.post(`${this.url}/updatecourse`, data);
+  }
+
+  myOrders = (data: any) => {
+    return this.http.post(`${this.url}/myorders`, data);
   }
 
   viewLessons = () => {

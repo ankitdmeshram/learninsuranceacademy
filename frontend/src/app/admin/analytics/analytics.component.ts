@@ -35,7 +35,7 @@ export class AnalyticsComponent {
 
   Courses = () => {
     this.spinner.show();
-    this.course.viewCourses()
+    this.course.viewCourses({email: null})
       .subscribe((res: any) => {
 
         this.courseCount = res.length
