@@ -22,7 +22,6 @@ export class OrdersComponent {
     this.auth.getUser().then((res: any) => {
       this.userEmail = res?.multiFactor.user.email;
       this.Order();
-      this.Courses();
     },
       (err) => {
         this.toastr.error("Something went wrong");
@@ -38,6 +37,7 @@ export class OrdersComponent {
     this.course.myOrders({ email: this.userEmail })
       .subscribe((res: any) => {
         this.myOrders = res;
+        this.Courses();
         // this.spinner.hide();//
       },
         (err) => {
