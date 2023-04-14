@@ -39,7 +39,7 @@ export class HelperService {
           text: "Courses"
         },
         {
-          link: "./admin",
+          link: "./admin/orders",
           text: "Orders"
         },
         {

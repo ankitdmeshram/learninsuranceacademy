@@ -10,6 +10,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { UsersComponent } from './users/users.component';
+import { OrdersComponent } from './orders/orders.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { UsersComponent } from './users/users.component';
     SidebarComponent,
     AnalyticsComponent,
     CoursesComponent,
-    UsersComponent
+    UsersComponent,
+    OrdersComponent
   ],
   imports: [
     CommonModule,

@@ -7,41 +7,34 @@ import { CourseService } from 'src/app/services/course.service';
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
-  styleUrls: ['../dashboard.component.css', './orders.component.css']
+  styleUrls: ['../admin.component.css', './orders.component.css']
 })
 export class OrdersComponent {
 
   constructor(
-    private auth: AuthService,
     private spinner: NgxSpinnerService,
     private toastr: ToastrService,
     private course: CourseService
   ) {
     spinner.show()
-    this.auth.getUser().then((res: any) => {
-      this.userEmail = res?.multiFactor.user.email;
-      this.Order();
-    },
-      (err) => {
-        this.toastr.error("Something went wrong");
-        this.spinner.hide();
-      }
-    )
+    this.Order();
   }
   userEmail: any;
   myOrders: any;
   courses: any;
+  isLoading: number = 0;
 
   Order = () => {
-    this.course.myOrders({ email: this.userEmail })
+    this.course.myOrders({ email: "null" })
       .subscribe((res: any) => {
         this.myOrders = res;
         this.Courses();
-        // this.spinner.hide();//
+        this.isLoading++;
       },
         (err) => {
           this.toastr.error("Something went wrong");
           this.spinner.hide();
+          this.isLoading++;
         }
       )
   }
@@ -50,16 +43,20 @@ export class OrdersComponent {
     this.course.viewCourses({ email: null })
       .subscribe((res: any) => {
         this.courses = res;
-        for (let course of this.courses) {
-          for (let order of this.myOrders) {
-            order['course_name'] = course.course_name;
+        for (let order of this.myOrders) {
+          for (let course of this.courses) {
+            if (order.course_id == course.id) {
+              order['course_name'] = course.course_name;
+            }
           }
         }
+        this.isLoading++;
         this.spinner.hide();
       },
         (err) => {
           this.toastr.error("Something went wrong!");
           this.spinner.hide();
+          this.isLoading++;
         }
       )
   }
