@@ -48,7 +48,8 @@
 .gs-content {
   margin: 20px;
   background: white;
-  min-height: 500px;
+  height: 82vh;
+  overflow-y: scroll;
   padding: 20px;
 }
 

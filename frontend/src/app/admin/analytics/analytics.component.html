@@ -15,4 +15,80 @@
     <h2 style="padding-top: 35px; padding-bottom: 5px; font-size: 30px">Rs.{{totalSellCount}}</h2>
     <h3>Total Sells</h3>
   </div>
+  <div>
+    <h2 style="padding-top: 20px">{{activeOrderCount}}</h2>
+    <h3>Active Orders</h3>
+  </div>
+  <div>
+    <h2 style="padding-top: 20px">{{pendingOrderCount}}</h2>
+    <h3>Pending Orders</h3>
+  </div>
+</div>
+<div class="dash-flex" *ngIf="isAllLoad==3">
+  <div>
+    <h3 style="padding-top: 20px">Daily Orders Stats</h3>
+  </div>
+  <div>
+    <h2 style="padding-top: 20px">{{todayOrderCount}}</h2>
+    <h3>Orders</h3>
+  </div>
+  <div>
+    <h2 style="padding-top: 20px">{{todayActiveOrderCount}}</h2>
+    <h3>Active</h3>
+  </div>
+  <div>
+    <h2 style="padding-top: 20px">{{todayPendingOrderCount}}</h2>
+    <h3>Pending</h3>
+  </div>
+</div>
+<div class="dash-flex" *ngIf="isAllLoad==3">
+  <div>
+    <h3 style="padding-top: 20px">Last 7 Days Orders Stats</h3>
+  </div>
+  <div>
+    <h2 style="padding-top: 20px">{{weeklyOrderCount}}</h2>
+    <h3>Orders</h3>
+  </div>
+  <div>
+    <h2 style="padding-top: 20px">{{weeklyActiveOrderCount}}</h2>
+    <h3>Active</h3>
+  </div>
+  <div>
+    <h2 style="padding-top: 20px">{{weeklyPendingOrderCount}}</h2>
+    <h3>Pending</h3>
+  </div>
+</div>
+<div class="dash-flex" *ngIf="isAllLoad==3">
+  <div>
+    <h3 style="padding-top: 20px">Last 30 Days Orders Stats</h3>
+  </div>
+  <div>
+    <h2 style="padding-top: 20px">{{monthlyOrderCount}}</h2>
+    <h3>Orders</h3>
+  </div>
+  <div>
+    <h2 style="padding-top: 20px">{{monthlyActiveOrderCount}}</h2>
+    <h3>Active</h3>
+  </div>
+  <div>
+    <h2 style="padding-top: 20px">{{monthlyPendingOrderCount}}</h2>
+    <h3>Pending</h3>
+  </div>
+</div>
+<div class="dash-flex" *ngIf="isAllLoad==3">
+  <div>
+    <h3 style="padding-top: 20px">Last 365 Days Orders Stats</h3>
+  </div>
+  <div>
+    <h2 style="padding-top: 20px">{{yearlyOrderCount}}</h2>
+    <h3>Orders</h3>
+  </div>
+  <div>
+    <h2 style="padding-top: 20px">{{yearlyActiveOrderCount}}</h2>
+    <h3>Active</h3>
+  </div>
+  <div>
+    <h2 style="padding-top: 20px">{{yearlyPendingOrderCount}}</h2>
+    <h3>Pending</h3>
+  </div>
 </div>
