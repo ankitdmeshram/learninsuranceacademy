@@ -49,14 +49,15 @@ export class CoursesComponent {
     this.course.viewCourses({ email: this.userEmail })
       .subscribe((res) => {
         this.courses = res;
-        for(let course of this.courses)
-        {
-          for(let order of this.myOrders)
-          {
-            if(course.id == order.course_id)
-            {
-              if(order.status == 1)
-              this.purchasedCourseList.push(course)
+        for (let course of this.courses) {
+          for (let order of this.myOrders) {
+            if (course.id == order.course_id) {
+              if (order.status == 1) {
+                course.valid_till = new Date(order.created_at)
+
+                course.valid_till =new Date(course.valid_till.getYear(),course.valid_till.getMonth(), course.valid_till.getDate() + 30)
+                this.purchasedCourseList.push(course)
+              }
             }
           }
         }

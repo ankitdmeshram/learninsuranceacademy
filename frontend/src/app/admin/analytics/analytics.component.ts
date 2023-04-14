@@ -17,34 +17,34 @@ export class AnalyticsComponent {
   ) {
     this.Courses()
     this.Users();
-
+    this.Orders();
   }
 
 
 
   courseCount: number = 0;
   userCount: number = 0;
+  orderCount: number = 0;
+  totalSellCount: number = 0;
 
   isAllLoad: number = 0;
 
   Loading = () => {
-    if (this.isAllLoad == 2) {
+    this.isAllLoad++;
+    if (this.isAllLoad == 3) {
       this.spinner.hide();
     }
   }
 
   Courses = () => {
     this.spinner.show();
-    this.course.viewCourses({email: null})
+    this.course.viewCourses({ email: null })
       .subscribe((res: any) => {
-
         this.courseCount = res.length
-        this.isAllLoad++;
-        this.Loading()
+        this.Loading();
       },
         (err) => {
-          this.isAllLoad++;
-          this.Loading()
+          this.Loading();
         }
       );
   };
@@ -54,15 +54,29 @@ export class AnalyticsComponent {
     this.users.Users()
       .subscribe((res: any) => {
         this.userCount = res.length
-        this.isAllLoad++;
-        this.Loading()
+        this.Loading();
       },
         (err) => {
-          this.spinner.hide()
-          this.isAllLoad++;
-          this.Loading()
+          this.Loading();
         }
       )
+  }
+
+  Orders = () => {
+    this.course.myOrders({ email: "null" })
+      .subscribe((res: any) => {
+        this.TotalSells(res);
+        this.orderCount = res.length;
+        this.Loading();
+      }, (res:any) => {
+        this.Loading();
+      })
+  }
+
+  TotalSells = (data: any) => {
+    for(let order of data) {
+      this.totalSellCount += order.fee;
+    }
   }
 
 }

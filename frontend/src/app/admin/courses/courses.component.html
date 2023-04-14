@@ -49,7 +49,7 @@
         <br>
         <div class="form-group">
           <p class="w-100 mt-10">  <br />Course Image</p>
-          <input type="text" formControlName="course_image" class="w-100" id="course_image" class="w-100" />
+          <input type="file" formControlName="course_image" class="w-100" id="course_image" class="w-100" onChange="uploadImage(event)" />
         </div>
         <div class="form-group">
           <p class="w-100">Course Instructor</p>
@@ -72,7 +72,8 @@
           Update Course
         </button>
 
-        <button class="add-btn" style="margin-left: 20px;  display: inline" (click)="Lesson()" *ngIf="isEditCourseForm"> Lessons </button>
+        <button class="add-btn" style="margin-left: 20px;  display: inline" (click)="Lesson()" *ngIf="isEditCourseForm">
+          Lessons </button>
 
         <button class="add-btn" (click)="cancel()">
           Cancel
@@ -85,7 +86,8 @@
   <!-- Add Lessons /// -->
   <div class="gs-pro-form" *ngIf="lessonSection">
     <h1> {{ currentCourse.course_name }}</h1>
-    <button class="add-btn" style="margin-top: 10px" *ngIf="isAddLessonForm==false" (click)="isAddLessonForm=true; Lesson()">
+    <button class="add-btn" style="margin-top: 10px" *ngIf="isAddLessonForm==false"
+      (click)="isAddLessonForm=true; Lesson()">
       Add Lesson
     </button>
 
@@ -114,13 +116,15 @@
 
         <button class="add-btn" style="margin-top: 10px; display: inline"
           *ngIf="!lessonForm.invalid && isAddLessonForm && !isEditLessonForm" (click)="addLesson()">Add Lesson</button>
-        <button class="add-btn add-btn-dis" style=" display: inline" *ngIf="lessonForm.invalid  && isAddLessonForm && !isEditLessonForm"
-          disabled (click)="addLesson()">
+        <button class="add-btn add-btn-dis" style=" display: inline"
+          *ngIf="lessonForm.invalid  && isAddLessonForm && !isEditLessonForm" disabled (click)="addLesson()">
           Add Lesson
         </button>
 
-        <button class="add-btn" style="margin-top: 10px; display: inline" *ngIf="isEditLessonForm && !lessonForm.invalid" (click)="updateLesson()">Update</button>
-        <button class="add-btn  add-btn-dis" *ngIf="isEditLessonForm && lessonForm.invalid" (click)="updateLesson()">Update</button>
+        <button class="add-btn" style="margin-top: 10px; display: inline"
+          *ngIf="isEditLessonForm && !lessonForm.invalid" (click)="updateLesson()">Update</button>
+        <button class="add-btn  add-btn-dis" *ngIf="isEditLessonForm && lessonForm.invalid"
+          (click)="updateLesson()">Update</button>
 
       </form>
     </div>
@@ -149,13 +153,10 @@
       </table>
     </div>
 
-
-
     <button class="add-btn" (click)="cancel()">
       Cancel
     </button>
   </div>
-
 
   <div class="course-table">
     <table>
@@ -164,7 +165,6 @@
         <th>Course Name</th>
         <th>Course Image</th>
         <th>Course Instructor</th>
-        <th>Course Duration</th>
         <th>Course Price</th>
         <th>Updated At</th>
         <th>Created At</th>
@@ -175,14 +175,11 @@
         <td (click)="viewCourse(course, i)" style="cursor: pointer">{{course.course_name}}</td>
         <td>{{course.course_image}}</td>
         <td>{{course.course_instructor}}</td>
-        <td>{{course.course_duration}}</td>
         <td>{{course.course_price}}</td>
-        <td>{{course.updated_at}}</td>
-        <td>{{course.created_at}}</td>
+        <td>{{course.updated_at | date}}</td>
+        <td>{{course.created_at | date}}</td>
         <td><button class="add-btn" (click)="deleteCourse(course, i)">Delete</button></td>
       </tr>
     </table>
   </div>
-
-
 </div>

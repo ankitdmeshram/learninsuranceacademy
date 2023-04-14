@@ -48,7 +48,7 @@
 .gs-content {
   margin: 20px;
   background: white;
-  height: 500px;
+  min-height: 500px;
   padding: 20px;
 }
 

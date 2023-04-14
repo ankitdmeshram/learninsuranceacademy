@@ -7,6 +7,8 @@ use App\Models\Lesson;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Stmt\Expression;
+use PhpParser\Node\Stmt\TryCatch;
 
 class courseController extends Controller
 {
@@ -158,12 +160,14 @@ class courseController extends Controller
         }
     }
 
-
     function myOrders(Request $req)
     {
         $email = $req->email;
-        return DB::table('orders')->where('email', $email)->get();
+        if ($email == "null") {
+            return DB::table('orders')->get();
+        } else {
+            return DB::table('orders')->where('email', $email)->get();
+        }
         //return DB::select("SELECT * FROM orders WHERE email = " . mysqli_real_escape_string($req->email));
-
     }
 }

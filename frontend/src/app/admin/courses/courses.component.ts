@@ -113,6 +113,10 @@ export class CoursesComponent {
       )
   }
 
+  uploadImage = (upload: any) => {
+    this.course.imgUpload(upload)
+  }
+
   deleteCourse = (course: any, i: number) => {
     if (confirm("Are you sure you want to delete this course ? ")) {
       this.spinner.show();

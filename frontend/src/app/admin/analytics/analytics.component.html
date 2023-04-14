@@ -1,4 +1,4 @@
-<div class="dash-flex">
+<div class="dash-flex" *ngIf="isAllLoad==3">
   <div>
     <h2 style="padding-top: 20px">{{courseCount}}</h2>
     <h3>Courses</h3>
@@ -7,6 +7,12 @@
     <h2 style="padding-top: 20px">{{userCount}}</h2>
     <h3>Users</h3>
   </div>
-  <div>3</div>
-  <div>4</div>
+  <div>
+    <h2 style="padding-top: 20px">{{orderCount}}</h2>
+    <h3>Orders</h3>
+  </div>
+  <div>
+    <h2 style="padding-top: 35px; padding-bottom: 5px; font-size: 30px">Rs.{{totalSellCount}}</h2>
+    <h3>Total Sells</h3>
+  </div>
 </div>
