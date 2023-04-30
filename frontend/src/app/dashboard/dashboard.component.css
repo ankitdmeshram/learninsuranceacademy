@@ -127,9 +127,8 @@ p {
   height: 210px;
   padding: 5px;
 }
-
-.gs-courses .gs-ind-course h3,
-.gs-courses .gs-ind-course h4 {
+.gs-courses .gs-ind-course h4,
+.gs-courses .gs-ind-course h5 {
   padding: 4px 10px;
 }
 
@@ -153,6 +152,9 @@ p {
   .dash-flex div {
     background-color: #f1f1f1;
     width: 40%;
+  }
+  .goto-admin {
+    display: none;
   }
 }
 

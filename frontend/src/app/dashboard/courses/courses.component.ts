@@ -55,7 +55,7 @@ export class CoursesComponent {
               if (order.status == 1) {
                 course.valid_till = new Date(order.created_at)
 
-                course.valid_till =new Date(course.valid_till.getYear(),course.valid_till.getMonth(), course.valid_till.getDate() + 30)
+                course.valid_till = new Date(course.valid_till.getYear(), course.valid_till.getMonth(), course.valid_till.getDate() + course.course_duration)
                 this.purchasedCourseList.push(course)
               }
             }

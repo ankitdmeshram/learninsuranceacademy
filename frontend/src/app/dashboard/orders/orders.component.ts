@@ -36,7 +36,9 @@ export class OrdersComponent {
     this.course.myOrders({ email: this.userEmail })
       .subscribe((res: any) => {
         this.myOrders = res;
+        this.myOrders = this.myOrders.filter((res: any) => res.status == 1);
         this.Courses();
+
         // this.spinner.hide();//
       },
         (err) => {
